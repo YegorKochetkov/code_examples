@@ -4,28 +4,83 @@ html:has(.modal:target) {
     display: none; /* Chrome, Safari and Opera */
   }
 }
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
+
+.modal,
+.overlay {
+  position: absolute;
+  top: 0;
+  left: -100vw;
   z-index: 100;
+  display: grid;
   place-items: center;
-  padding: 2em;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 0.3s, left 0.3s;
 }
-.modal .overlay {
+.modal:target {
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.3s, left 0.3s;
+}
+.modal .modalClose {
   position: absolute;
   inset: 0;
-  background: rgba(0 0 0 / 0.5);
+  z-index: -1;
+  cursor: default;
 }
-.modal .modal-content {
+.modal:target + .overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0 0 0 / 0.5);
+  opacity: 1;
+  z-index: -2;
+  transition: opacity 0.3s;
+}
+.modal .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modalContent {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
   background: white;
-  padding: 1em;
+  padding: 1rem;
   z-index: 150;
   max-width: 82ch;
 }
-.modal:target {
+
+.loginForm {
   display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.loginForm label:not(:has(input[type="checkbox"])) {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.loginForm fieldset {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+}
+.loginForm .modalClose {
+  position: relative;
+  display: inline-block;
+  font-size: x-large;
+  text-decoration: none;
+  color: #C00;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+.loginForm .modalClose::after {
+  content: "\1F5D9";
 }
