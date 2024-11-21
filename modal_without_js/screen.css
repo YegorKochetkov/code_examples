@@ -4,6 +4,9 @@ html:has(.modal:target) {
     display: none; /* Chrome, Safari and Opera */
   }
 }
+body {
+  margin-inline: 2rem;
+}
 
 .modal,
 .overlay {
@@ -83,4 +86,11 @@ html:has(.modal:target) {
 }
 .loginForm .modalClose::after {
   content: "\1F5D9";
+}
+
+.paragraphs {
+  columns: 12rem;
+}
+.paragraphs > p {
+  break-inside: avoid;
 }
