@@ -1,0 +1,31 @@
+html:has(.modal:target) {
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  place-items: center;
+  padding: 2em;
+}
+.modal .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0 0 0 / 0.5);
+}
+.modal .modal-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  background: white;
+  padding: 1em;
+  z-index: 150;
+  max-width: 82ch;
+}
+.modal:target {
+  display: grid;
+}
