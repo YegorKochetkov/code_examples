@@ -154,3 +154,10 @@ svg * {
 		scroll-behavior: auto !important;
 	}
 }
+
+/* Отображаем адрес ссылки при печати */
+@media print {
+	a:after {
+		content:"("attr(href)")";
+	}
+}
