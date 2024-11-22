@@ -94,3 +94,10 @@ body {
 .paragraphs > p {
   break-inside: avoid;
 }
+
+.mainFooter {
+  margin-top: 2rem;
+  padding-block: 1rem;
+  display: flex;
+  gap: 1rem;
+}
