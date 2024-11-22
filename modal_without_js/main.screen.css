@@ -1,115 +1,115 @@
 @import url("../normalize.css");
 
 :root {
-  color-scheme: light dark;
+	color-scheme: light dark;
 }
 
 html:has(.modal:target) {
-  overflow: hidden;
-  ::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-  }
+	overflow: hidden;
+	::-webkit-scrollbar {
+		display: none; /* Chrome, Safari and Opera */
+	}
 }
 body {
-  margin-inline: 2rem;
+	margin-inline: 2rem;
 }
 
 .modal,
 .overlay {
-  position: absolute;
-  top: 0;
-  left: -100vw;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 2rem;
-  overflow: auto;
-  opacity: 0;
-  transition: opacity 0.3s, left 0.3s;
+	position: absolute;
+	top: 0;
+	left: -100vw;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	width: 100vw;
+	height: 100vh;
+	padding: 2rem;
+	overflow: auto;
+	opacity: 0;
+	transition: opacity 0.3s, left 0.3s;
 }
 .modal:target {
-  left: 0;
-  opacity: 1;
-  transition: opacity 0.3s, left 0.3s;
+	left: 0;
+	opacity: 1;
+	transition: opacity 0.3s, left 0.3s;
 }
 .modal .modalClose {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  cursor: default;
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	cursor: default;
 }
 .overlay {
-  background: rgba(0 0 0 / 0.6);
-  z-index: 0;
+	background: rgba(0 0 0 / 0.6);
+	z-index: 0;
 }
 .modal:target ~ .overlay {
-  left: 0;
-  opacity: 1;
-  transition: opacity 0.3s;
+	left: 0;
+	opacity: 1;
+	transition: opacity 0.3s;
 }
 .modal .modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .modal .modalContent {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  background-color: light-dark(white, #1c1b22);
-  padding: 1rem;
-  z-index: 150;
-  max-width: 82ch;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1em;
+	background-color: light-dark(white, #1c1b22);
+	padding: 1rem;
+	z-index: 150;
+	max-width: 82ch;
 }
 
 .loginForm {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
 }
 .loginForm label:not(:has(input[type="checkbox"])) {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 0.5rem;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 .loginForm fieldset {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 1rem;
+	display: grid;
+	grid-template-columns: auto;
+	gap: 1rem;
 }
 .loginForm .modalClose {
-  position: relative;
-  display: inline-block;
-  font-size: x-large;
-  text-decoration: none;
-  color: #C00;
-  cursor: pointer;
-  transition: transform 0.3s;
-  z-index: 1;
+	position: relative;
+	display: inline-block;
+	font-size: x-large;
+	text-decoration: none;
+	color: #C00;
+	cursor: pointer;
+	transition: transform 0.3s;
+	z-index: 1;
 }
 .loginForm .modalClose::after {
-  content: "\1F5D9";
+	content: "\1F5D9";
 }
 
 .paragraphs {
-  columns: 12rem;
+	columns: 12rem;
 }
 .paragraphs > p {
-  break-inside: avoid;
+	break-inside: avoid;
 }
 
 .mainHeader,
 .mainFooter {
-  margin-top: 2rem;
-  padding-block: 1rem;
-  display: flex;
-  gap: 1rem;
+	margin-top: 2rem;
+	padding-block: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 .mainHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-top: 0;
 }
