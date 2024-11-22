@@ -1,5 +1,0 @@
-@media print {
-  a:after {
-    content:"("attr(href)")";
-  }
-}
