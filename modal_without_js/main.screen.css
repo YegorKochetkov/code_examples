@@ -1,5 +1,9 @@
 @import url("../normalize.css");
 
+:root {
+  color-scheme: light dark;
+}
+
 html:has(.modal:target) {
   overflow: hidden;
   ::-webkit-scrollbar {
@@ -33,16 +37,16 @@ body {
 .modal .modalClose {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   cursor: default;
 }
 .overlay {
-  background: rgba(0 0 0 / 0.5);
+  background: rgba(0 0 0 / 0.6);
+  z-index: 0;
 }
 .modal:target ~ .overlay {
   left: 0;
   opacity: 1;
-  z-index: -2;
   transition: opacity 0.3s;
 }
 .modal .modalHeader {
@@ -54,7 +58,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
-  background: white;
+  background-color: light-dark(white, #1c1b22);
   padding: 1rem;
   z-index: 150;
   max-width: 82ch;
