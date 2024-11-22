@@ -1,3 +1,5 @@
+@import url("../normalize.css");
+
 html:has(.modal:target) {
   overflow: hidden;
   ::-webkit-scrollbar {
@@ -34,12 +36,11 @@ body {
   z-index: -1;
   cursor: default;
 }
-.modal:target + .overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.overlay {
   background: rgba(0 0 0 / 0.5);
+}
+.modal:target ~ .overlay {
+  left: 0;
   opacity: 1;
   z-index: -2;
   transition: opacity 0.3s;
@@ -95,9 +96,16 @@ body {
   break-inside: avoid;
 }
 
+.mainHeader,
 .mainFooter {
   margin-top: 2rem;
   padding-block: 1rem;
   display: flex;
   gap: 1rem;
+}
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0;
 }

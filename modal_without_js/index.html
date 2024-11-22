@@ -10,7 +10,7 @@ https://freedium.cfd/https://medium.com/codex/html-5-dialog-more-proof-of-what-m
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="modal, without, JavaScript">
 
-    <link rel="stylesheet" href="../normalize.css">
+    <link rel="preload" href="../normalize.css" as="style" />
     <link rel="stylesheet" href="main.screen.css" media="screen">
     <link rel="stylesheet" href="../print.css" media="print">
     <link name="description" content="Example of modal without JavaScript">
@@ -18,8 +18,10 @@ https://freedium.cfd/https://medium.com/codex/html-5-dialog-more-proof-of-what-m
     <title>Modal without JavaScript</title>
   </head>
   <body>
-    <h1 class="pageHeader">Modal dialog without JavaScript</h1>
-    <a href="#loginModal">Log In</a>
+    <header class="mainHeader">
+      <h1 class="pageTitle">Modal dialog without JavaScript</h1>
+      <a href="#loginModal">Log In</a>
+    </header>
 
     <div class="paragraphs">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum porro necessitatibus animi aperiam quia dolor sint, eaque quod laborum accusamus omnis nihil! Magnam veritatis quaerat deserunt quia nostrum aperiam. Distinctio.</p>
@@ -68,6 +70,7 @@ https://freedium.cfd/https://medium.com/codex/html-5-dialog-more-proof-of-what-m
         </form>
       </section>
     </div>
+
     <footer class="mainFooter">
       <!-- Этого достаточно для указания автора -->
       <p>Copyright Yegor Kochetkov</p>
