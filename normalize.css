@@ -31,7 +31,6 @@ body,
 :where(h1,h2,h3,h4,h5,h6) {
 	text-wrap: balance;
 }
-
 :where(p,li,figcaption) {
 	text-wrap: pretty;
 }
@@ -41,11 +40,9 @@ body,
 :where(h1,h2,h3,h4,h5,h6,p,ul,ol,dl):where([class]) {
 	margin-block: 0;
 }
- 
 :where(dd[class]) {
 	margin-left: 0;
 }
-
 :where(fieldset[class]) {
 	margin-left: 0;
 	padding: 0;
@@ -64,7 +61,7 @@ body,
  
 /* Обнуляем вертикальные внешние отступы параграфа,
 объявляем локальную переменную для внешнего отступа вниз,
-чтобы избежать взаимодействие с более сложным селектором */
+чтобы избежать взаимодействия с более сложным селектором */
 p {
 	--paragraphMarginBottom: 24px;
 
@@ -123,7 +120,6 @@ a:where([class]) {
 	display: inline-flex;
 }
  
-/* Курсор-рука при наведении на элемент */
 button,
 label {
 	cursor: pointer;
@@ -154,12 +150,5 @@ svg * {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
-	}
-}
-
-/* Отображаем адрес ссылки при печати */
-@media print {
-	a:after {
-		content:"("attr(href)")";
 	}
 }

@@ -60,10 +60,9 @@ body {
 }
 html:has(.modal:target) {
 	overflow: hidden;
-	
-	&::-webkit-scrollbar {
-		display: none;
-	}
+}
+html:has(.modal:target)::-webkit-scrollbar {
+	display: none;
 }
 
 .loginForm {
@@ -86,7 +85,7 @@ html:has(.modal:target) {
 	display: inline-block;
 	font-size: x-large;
 	text-decoration: none;
-	color: #C00;
+	color: #c00;
 	cursor: pointer;
 	z-index: 1;
 }
@@ -104,12 +103,13 @@ html:has(.modal:target) {
 .mainHeader,
 .mainFooter {
 	display: flex;
+	justify-content: space-between;
 	gap: var(--spacing-md);
-	margin-top: var(--spacing-lg);
 	padding-block: var(--spacing-md);
 }
 .mainHeader {
-	justify-content: space-between;
 	align-items: baseline;
-	margin-top: 0;
+}
+.mainFooter {
+	margin-top: var(--spacing-lg);
 }
