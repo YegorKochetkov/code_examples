@@ -2,9 +2,16 @@
 
 :root {
 	color-scheme: light dark;
+	--transition-base: 0.3s;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 2rem;
+	--bg-light: white;
+	--bg-dark: #1c1b22;
 }
+
 body {
-	margin-inline: 2rem;
+	margin-inline: var(--spacing-lg);
 }
 
 .modal,
@@ -12,35 +19,30 @@ body {
 	position: absolute;
 	top: 0;
 	left: -100vw;
-	z-index: 100;
-	display: grid;
-	place-items: center;
 	width: 100vw;
 	height: 100vh;
-	padding: 2rem;
+	display: grid;
+	place-items: center;
+	padding: var(--spacing-lg);
 	overflow: auto;
 	opacity: 0;
-	transition: opacity 0.3s, left 0.3s;
+	transition: opacity var(--transition-base), left var(--transition-base);
+	z-index: 100;
 }
 .overlay {
 	background: rgba(0 0 0 / 0.6);
-	z-index: 0;
+	z-index: 50;
 }
-.modal:target {
+.modal:target,
+.modal:target ~ .overlay {
 	left: 0;
 	opacity: 1;
-	transition: opacity 0.3s, left 0.3s;
 }
 .modal .modalClose {
 	position: absolute;
 	inset: 0;
 	z-index: 0;
 	cursor: default;
-}
-.modal:target ~ .overlay {
-	left: 0;
-	opacity: 1;
-	transition: opacity 0.3s;
 }
 .modal .modalHeader {
 	display: flex;
@@ -51,32 +53,33 @@ body {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1em;
-	background-color: light-dark(white, #1c1b22);
-	padding: 1rem;
+	background-color: light-dark(var(--bg-light), var(--bg-dark));
+	padding: var(--spacing-md);
 	z-index: 150;
 	max-width: 82ch;
 }
 html:has(.modal:target) {
 	overflow: hidden;
-	::-webkit-scrollbar {
-		display: none; /* Chrome, Safari and Opera */
+	
+	&::-webkit-scrollbar {
+		display: none;
 	}
 }
 
 .loginForm {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1rem;
+	gap: var(--spacing-md);
 }
 .loginForm label:not(:has(input[type="checkbox"])) {
 	display: inline-flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: var(--spacing-sm);
 }
 .loginForm fieldset {
 	display: grid;
 	grid-template-columns: auto;
-	gap: 1rem;
+	gap: var(--spacing-md);
 }
 .loginForm .modalClose {
 	position: relative;
@@ -85,7 +88,6 @@ html:has(.modal:target) {
 	text-decoration: none;
 	color: #C00;
 	cursor: pointer;
-	transition: transform 0.3s;
 	z-index: 1;
 }
 .loginForm .modalClose::after {
@@ -101,13 +103,12 @@ html:has(.modal:target) {
 
 .mainHeader,
 .mainFooter {
-	margin-top: 2rem;
-	padding-block: 1rem;
 	display: flex;
-	gap: 1rem;
+	gap: var(--spacing-md);
+	margin-top: var(--spacing-lg);
+	padding-block: var(--spacing-md);
 }
 .mainHeader {
-	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
 	margin-top: 0;
