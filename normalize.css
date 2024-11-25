@@ -59,7 +59,7 @@ body,
 }
 
 :where(address[class]) {
-font-style: normal;
+	font-style: normal;
 }
  
 /* Обнуляем вертикальные внешние отступы параграфа,

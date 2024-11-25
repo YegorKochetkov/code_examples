@@ -3,13 +3,6 @@
 :root {
 	color-scheme: light dark;
 }
-
-html:has(.modal:target) {
-	overflow: hidden;
-	::-webkit-scrollbar {
-		display: none; /* Chrome, Safari and Opera */
-	}
-}
 body {
 	margin-inline: 2rem;
 }
@@ -29,6 +22,10 @@ body {
 	opacity: 0;
 	transition: opacity 0.3s, left 0.3s;
 }
+.overlay {
+	background: rgba(0 0 0 / 0.6);
+	z-index: 0;
+}
 .modal:target {
 	left: 0;
 	opacity: 1;
@@ -39,10 +36,6 @@ body {
 	inset: 0;
 	z-index: 0;
 	cursor: default;
-}
-.overlay {
-	background: rgba(0 0 0 / 0.6);
-	z-index: 0;
 }
 .modal:target ~ .overlay {
 	left: 0;
@@ -62,6 +55,12 @@ body {
 	padding: 1rem;
 	z-index: 150;
 	max-width: 82ch;
+}
+html:has(.modal:target) {
+	overflow: hidden;
+	::-webkit-scrollbar {
+		display: none; /* Chrome, Safari and Opera */
+	}
 }
 
 .loginForm {

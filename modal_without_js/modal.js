@@ -1,16 +1,16 @@
 {
-	// Function to find modal close button for current hash
+	// Функция закрытия модального окна
 	const findModalClose = () => {
-		// Get hash without the # symbol
+		// Получаем текущий хэш без символа #
 		const hash = location.hash.slice(1);
 		
 		if (hash) {
-			// Find element by hash
+			// Находим элемент с идентификатором, соответствующим хэшу
 			const element = document.getElementById(hash);
 			
-			// Check if element exists and has class 'modal'
+			// Проверяем, является ли элемент модальным окном
 			if (element?.classList.contains('modal')) {
-				// Find and return the modal close button
+				// Находим и возвращаем кнопку закрытия
 				return element.querySelector('a.modalClose');
 			}
 		}
@@ -18,7 +18,7 @@
 		return null;
 	};
 
-	// Handle keydown events
+	// Программное закрытие модального окна по нажатию клавиши Escape
 	document.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape') {
 			const closeButton = findModalClose();
