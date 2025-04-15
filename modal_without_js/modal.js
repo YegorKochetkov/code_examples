@@ -8,7 +8,7 @@
 		// Получаем текущий хэш без символа #
 		const hash = location.hash.slice(1);
 		// Проверяем, относится ли хэш к модальному окну
-		if (hash && hash.toLocaleLowerCase().includes("modal")) {
+		if (hash?.toLocaleLowerCase().includes("modal")) {
 			// Находим элемент с идентификатором, соответствующим хэшу
 			const element = document.getElementById(hash);
 			// Находим и возвращаем элемент модального окна
