@@ -21,3 +21,15 @@ export async function tryCatch<T, E = Error>(
 		return { data: null, error };
 	}
 }
+
+// Пример: возврат всегда будет числом, несмотря на возможное бросание ошибки
+const doSomething = async () => {
+	const result = Math.random();
+
+	if (result > 0.5) throw new Error("Too big");
+
+	return result;
+};
+
+// всегда точно знаем, что либо number, либо Error
+const { data, error } = await tryCatch(doSomething());
