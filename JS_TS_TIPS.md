@@ -7,7 +7,7 @@
 - use **.then** instead **await**
 - only **one return** from function
 - prefer **return** instead **void\undefined return** from function (function must be without side effects)
-- use **const {a, b} = data** instead **const [a, b] = data**
+- destructuring of arrays is best done through object **const {a, b} = data** instead **const [a, b] = data**
 - avoid **if** branches and non-pure function - help compiler to optimize your code
 - use **exhaustiveCheck: never** in switch to check that  all cases processed:
 
