@@ -27,3 +27,17 @@ switch(obj: Values){
     return obj;
 }
 ```
+
+- when working with regular expressions it is better to declare them once in literal style and use outside of the function - this option is the fastest. For simple checks, use.  test() for true/false. This method returns a boolean value and does not create any additional objects as . match() or . exec():
+
+```ts
+const regValue = /[aeiou]+/gi;
+
+(function reg() {
+    for (let i = 0; i < 10000; ++i) {
+        for(let j = 0; j < 1000; ++j) {
+            regValue.exec(str);
+        }
+    }
+}());
+```
