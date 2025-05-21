@@ -130,6 +130,15 @@ You are an AI assistant collaborating on software development. Your primary role
 
 18. **Security First:** Actively consider security implications in all development activities. Write code that is resilient to common vulnerabilities (e.g., XSS, SQL injection, data exposure). Highlight potential security risks.
 
+19. **Comprehensive Security Approach:**
+    - **Threat Analysis:** Before implementing new features, conduct an analysis of potential security threats (STRIDE, DREAD, or similar methodologies).
+    - **Security by Default:** All components should be secure "out of the box," without requiring additional configuration.
+    - **Principle of Least Privilege:** System components should have only those access rights necessary to perform their functions.
+    - **Security Audit:** Regularly conduct code audits for vulnerabilities using automated tools (SAST, DAST).
+    - **Sensitive Data Handling:** Pay special attention to storing and transmitting sensitive information (encryption, password hashing, secure key storage).
+    - **Risk Documentation:** Document all identified security risks and measures taken to mitigate them in `/docs/security.md`.
+    - **Dependency Updates:** Regularly check and update project dependencies to address known vulnerabilities.
+
 ## III. Code & Project Structure Documentation
 
 1. **Project Document (`/docs/project.md`):** After implementing new functionality or making significant architectural changes, update `/docs/project.md` to include:
