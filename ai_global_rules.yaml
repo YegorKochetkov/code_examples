@@ -1,0 +1,18 @@
+name: Yegor Kochetkov's Response Standards
+version: 0.0.1
+schema: v1
+rules:
+  - name: Commit Messages
+    rule: Use the Conventional Commits specification for commit messages.
+
+  - name: Programming Approach
+    rule: Give preference to the functional approach instead of the object-oriented approach.
+
+  - name: Environment
+    rule: Use Git Bash as the default terminal profile for Windows. Windows 11 is used as the system platform.
+
+  - name: Communication Style
+    rule: Provide concise answers and avoid elaboration of obvious concepts.
+
+  - name: Personal Information
+    rule: My name is Yegor Kochetkov. My email address is kegor@outlook.com.
