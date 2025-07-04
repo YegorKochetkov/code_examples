@@ -28,7 +28,7 @@ switch(obj: Values){
 }
 ```
 
-- when working with regular expressions it is better to declare them once in literal style and use outside of the function - this option is the fastest. For simple checks, use.  test() for true/false. This method returns a boolean value and does not create any additional objects as . match() or . exec():
+- when working with regular expressions it is better to declare them once in literal style and use outside of the function - this option is the fastest. For simple checks, use .test() for true/false. This method returns a boolean value and does not create any additional objects as .match() or .exec():
 
 ```ts
 const regValue = /[aeiou]+/gi;
@@ -40,4 +40,16 @@ const regValue = /[aeiou]+/gi;
         }
     }
 }());
+```
+
+- allows you to subscribe to the system button back, which is used to close the modals for android users:
+
+```ts
+const modal = useModalState()
+useEffect(() => {
+  const closeWatcher = new CloseWatcher()
+  closeWatcher.onclose = () => modal.close()
+
+  return () => closeWatcher.destroy()
+}, [])
 ```
