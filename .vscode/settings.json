@@ -1,3 +1,9 @@
 {
-	"cSpell.words": ["Ламков", "хэша", "хэшу"]
+	"cSpell.words": [
+		"Ламков",
+		"хэша",
+		"хэшу"
+	],
+	"Codegeex.Chat.fontSize": 16,
+	"Codegeex.CommitMessageStyle": "ConventionalCommits"
 }
