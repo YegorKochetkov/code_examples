@@ -41,6 +41,7 @@ function testGetAnyArray() {
 	type CheckConstMixedArray = typeof resultConstMixedArray;
 }
 
+//#############################################################
 // Type that can accept any non-empty array without using 'any'
 type NonEmptyArrayType = readonly [unknown, ...unknown[]];
 
@@ -74,6 +75,7 @@ function testGetNotEmptyArray() {
 	getNotEmptyArray([1, "df"]);
 }
 
+//#########################################################################
 // Type function that can accept any number of arguments without using 'any'
 const structureTypeExample = {
 	arr: [

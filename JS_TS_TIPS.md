@@ -9,26 +9,62 @@
 - prefer **return** instead **void\undefined return** from function (function must be without side effects)
 - destructuring of arrays is best done through object **const {a, b} = data** instead **const [a, b] = data**
 - avoid **if** branches and non-pure function - help compiler to optimize your code
-- use **exhaustiveCheck: never** in switch to check that  all cases processed:
+- use **unreachableCase: never**  or **assertUnreachable()** in switch to check that  all cases processed:
 
 ```ts
-enum Values {
-  one,
-  two,
-}
+const colors = [
+    "Green",
+    "Blue",
+    "Red",
+    "Yellow",
+] as const;
 
-switch(obj: Values){
-  case Values.one:
-    return obj.one;
-  case Values.two:
-    return obj.two;
-  default:
-    const exhaustiveCheck: never = obj; // throw error if not all cases processed
-    return obj;
+const toRGB = (color: typeof colors[number]) => {
+  switch (color) {
+    case "Green":
+      return "#6abe30";
+
+    case "Blue":
+      return "#2a66b0";
+
+    case "Red":
+      return "#e97451";
+
+    // case "Yellow":
+    //   return "#ffdafa";
+
+  default: 
+  // Variant with exhaustive check:
+  //  let unreachableCase: never = color;
+           //^ Type 'Yellow' is not assignable to type 'never'
+  //  throw new Error("Unexpected value encountered");
+
+  // Variant with helper:
+   assertUnreachable(color, "Unexpected value encountered!");
+                    //^ Argument of type 'Yellow' is not assignable to parameter of type 'never'
+  }
+};
+
+/**
+ * Helper function that throws an error with a custom message when encountering unreachable code paths
+ * @param arg - Value of type never, representing an unreachable code path
+ * @param message - Custom error message to throw
+ * @throws {Error} Always throws an error with the provided message
+ * @example
+ * ```ts
+ * // In an exhaustive switch statement:
+ * default:
+ *   assertUnreachable(value, "Unexpected value encountered");
+ * ```
+ */
+const assertUnreachable = (arg: never, message: string) => {
+  // btw, the nice thing about doing `console.error` here instead is you can safely pass along `arg` to be logged as well
+  // console.error(message + " " + arg);
+  throw new Error(message);
 }
 ```
 
-- when working with regular expressions it is better to declare them once in literal style and use outside of the function - this option is the fastest. For simple checks, use .test() for true/false. This method returns a boolean value and does not create any additional objects as .match() or .exec():
+- when working with regular expressions it is better to declare them once in literal style and use outside of the function - this option is the fastest. For simple checks, use **.test()** for true/false. This method returns a boolean value and does not create any additional objects as **.match()** or **.exec()**:
 
 ```ts
 const regValue = /[aeiou]+/gi;
