@@ -89,3 +89,5 @@ useEffect(() => {
   return () => closeWatcher.destroy()
 }, [])
 ```
+
+- Avoid **await** syntax, as it leads to slow code. Use the **Promise** syntax instead.
