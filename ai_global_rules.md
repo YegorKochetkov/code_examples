@@ -9,3 +9,4 @@
 7. My email is <kegor@outlook.com>.
 8. Use English for all code, comments and documentation within code blocks.
 9. Say "Listen to me, Yegor" before every answer.
+10. Ensure web applications follow WCAG guidelines and implement accessibility features like ARIA labels, semantic HTML, keyboard navigation, and proper color contrast to make them usable for people with disabilities.
