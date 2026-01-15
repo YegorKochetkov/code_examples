@@ -1,6 +1,7 @@
 /* Источники:
 https://raw.githubusercontent.com/aleksanderlamkov/css-normalize/main/index.css
 https://www.youtube.com/watch?v=A4Y5VwXGG9g&list=WL&index=5 (Александр Ламков)
+https://www.bram.us/
 https://www.youtube.com/watch?v=eWmDW4zEXt4 (Kevin Powell) */
 
 /* Стили применяются к элементам с атрибутом class 
@@ -12,6 +13,14 @@ https://www.youtube.com/watch?v=eWmDW4zEXt4 (Kevin Powell) */
 ::before,
 ::after {
 	box-sizing: border-box;
+}
+
+/* Начиная с Chrome 145, 100vw будет автоматически вычитать ширину
+полосы прокрутки, если для элемента html принудительно установлено
+отображение полосы прокрутки (с помощью overflow{-y}: scroll) или
+зарезервировано место для неё (с помощью scrollbar-gutter: stable) */
+html {
+	scrollbar-gutter: stable;
 }
 
 /* Убираем внутренние отступы слева тегам списков,
