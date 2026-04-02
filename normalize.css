@@ -21,6 +21,7 @@ https://www.youtube.com/watch?v=eWmDW4zEXt4 (Kevin Powell) */
 зарезервировано место для неё (с помощью scrollbar-gutter: stable) */
 html {
 	scrollbar-gutter: stable;
+	interpolate-size: allow-keywords;
 }
 
 /* Убираем внутренние отступы слева тегам списков,
