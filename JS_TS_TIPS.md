@@ -91,3 +91,66 @@ useEffect(() => {
 ```
 
 - Avoid **await** syntax, as it leads to slow code. Use the **Promise** syntax instead.
+
+- Use **Object.prototype.toString.call()** for Reliable Type Detection
+typeof works well for primitives but quickly falls apart with complex objects.
+
+```ts
+typeof [];
+// "object"
+
+typeof null;
+// "object"
+```
+
+A more reliable solution is:
+
+```ts
+function getType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+}
+
+getType([]);
+// "Array"
+
+getType(new Map());
+// "Map"
+
+getType(new Date());
+// "Date"
+
+getType(/js/);
+// "RegExp"
+```
+
+This approach correctly distinguishes nearly every built-in JavaScript object.
+
+When to use typeof
+Use typeof for:
+
+- string
+- number
+- bigint
+- boolean
+- symbol
+- undefined
+- function
+
+Use **Object.prototype.toString.call()** when you need precise object types.
+
+- Always Use **Array.isArray()**
+Checking arrays with instanceof can fail across browser windows or iframes.
+The safer solution is built into JavaScript.
+
+Array.isArray(value);
+It also avoids confusing array-like objects.
+
+```ts
+Array.isArray([]);
+// true
+
+Array.isArray({ length: 2 });
+// false
+```
+
+Whenever you need to detect arrays, this should be your default choice
